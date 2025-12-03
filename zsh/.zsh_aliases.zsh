@@ -38,7 +38,11 @@ alias free="free -h"
 
 # Network
 alias myip="curl -s ifconfig.me"
-alias localip="ipconfig getifaddr en0"  # macOS
+if [[ "$(uname)" == "Darwin" ]]; then
+    alias localip="ipconfig getifaddr en0"
+else
+    alias localip="hostname -I | awk '{print \$1}'"
+fi
 alias ports="lsof -i -P -n | grep LISTEN"
 
 # ============================================================================
