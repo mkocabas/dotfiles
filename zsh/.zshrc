@@ -24,5 +24,5 @@ autoload -Uz promptinit && promptinit && prompt powerlevel10k
 [ -f ~/.zsh_aliases.zsh ] && source ~/.zsh_aliases.zsh
 
 # add pixi to path
-[ -f ~/.pixi/bin ] && export PATH="$HOME/.pixi/bin:$PATH"
+[ -d $HOME/.pixi/bin ] && export PATH="$HOME/.pixi/bin:$PATH"
 
