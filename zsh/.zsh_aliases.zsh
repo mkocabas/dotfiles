@@ -118,6 +118,4 @@ bak() {
     cp "$1" "$1.bak.$(date +%Y%m%d_%H%M%S)"
 }
 
-px() {
-    [ -d ~/.pixi/global ] && cd ~/.pixi/global && pixi "$@"
-}
+alias pixi-base='eval "$(pixi shell-hook --manifest-path ~/.pixi/base/pixi.toml)"'

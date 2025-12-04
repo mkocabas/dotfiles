@@ -23,6 +23,15 @@ autoload -Uz promptinit && promptinit && prompt powerlevel10k
 # aliases
 [ -f ~/.zsh_aliases.zsh ] && source ~/.zsh_aliases.zsh
 
-# add pixi to path
-[ -d $HOME/.pixi/bin ] && export PATH="$HOME/.pixi/bin:$PATH"
+if [ -d ~/.pixi/ ]; then
+  # add pixi to path
+  export PATH="$HOME/.pixi/bin:$PATH"
 
+  # zsh, default on macOS
+  fpath+=($HOME/.pixi/completions/zsh)
+  autoload -Uz compinit
+  compinit
+fi
+
+# initialize pixi-base environment
+pixi-base
