@@ -28,6 +28,40 @@ if [ ! -d ~/.fzf ]; then
     ~/.fzf/install --all
 fi
 
+# Prompt for pixi installation
+echo ""
+echo "======================"
+echo "== PIXI SETUP ========"
+echo "======================"
+read -p "Do you want to install pixi package manager? (y/n): " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    if ! command -v pixi &> /dev/null; then
+        echo "Installing pixi..."
+        curl -fsSL https://pixi.sh/install.sh | sh
+        
+        # Source the pixi environment to make it available in current session
+        export PATH="$HOME/.pixi/bin:$PATH"
+    else
+        echo "pixi is already installed."
+    fi
+    
+    # Create global pixi environment
+    if [ ! -d ~/.pixi/global ]; then
+        echo "Creating global pixi environment..."
+        mkdir -p ~/.pixi/global
+        cd ~/.pixi/global
+        pixi init
+        cd - > /dev/null
+        echo "✓ Global pixi environment created at ~/.pixi/global"
+    else
+        echo "Global pixi environment already exists at ~/.pixi/global"
+    fi
+else
+    echo "Skipping pixi installation."
+fi
+
+
 # Create symlinks
 ln -sf "$DOTFILES/zsh/.zshrc" "$HOME/.zshrc"
 ln -sf "$DOTFILES/zsh/.zshenv" "$HOME/.zshenv"
