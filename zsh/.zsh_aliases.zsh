@@ -21,6 +21,8 @@ alias c="code ."
 alias t="tmux"
 alias ta="tmux attach"
 alias tl="tmux list-sessions"
+alias reload='source ~/.zshrc'
+alias sz='source ~/.zshrc'
 
 
 # Safety nets

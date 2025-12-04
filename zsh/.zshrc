@@ -20,4 +20,9 @@ autoload -Uz promptinit && promptinit && prompt powerlevel10k
 # fzf key bindings and completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# aliases
 [ -f ~/.zsh_aliases.zsh ] && source ~/.zsh_aliases.zsh
+
+# add pixi to path
+[ -f ~/.pixi/bin ] && export PATH="$HOME/.pixi/bin:$PATH"
+
