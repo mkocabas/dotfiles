@@ -46,16 +46,16 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
         echo "pixi is already installed."
     fi
     
-    # Create global pixi environment
-    if [ ! -d ~/.pixi/global ]; then
-        echo "Creating global pixi environment..."
-        mkdir -p ~/.pixi/global
-        cd ~/.pixi/global
+    # Create base pixi environment
+    if [ ! -d ~/.pixi/base ]; then
+        echo "Creating base pixi environment..."
+        mkdir -p ~/.pixi/base
+        cd ~/.pixi/base
         pixi init
         cd - > /dev/null
-        echo "✓ Global pixi environment created at ~/.pixi/global"
+        echo "✓ Base pixi environment created at ~/.pixi/base"
     else
-        echo "Global pixi environment already exists at ~/.pixi/global"
+        echo "Base pixi environment already exists at ~/.pixi/base"
     fi
 else
     echo "Skipping pixi installation."
