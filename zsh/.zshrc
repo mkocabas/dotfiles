@@ -35,3 +35,8 @@ fi
 
 # initialize pixi-base environment
 pixi-base
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/mkocabas/.lmstudio/bin"
+# End of LM Studio CLI section
+
