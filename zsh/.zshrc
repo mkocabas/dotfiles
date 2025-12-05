@@ -31,12 +31,14 @@ if [ -d ~/.pixi/ ]; then
   fpath+=($HOME/.pixi/completions/zsh)
   autoload -Uz compinit
   compinit
+  # initialize pixi-base environment
+  pixi-base
 fi
 
-# initialize pixi-base environment
-pixi-base
 
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/mkocabas/.lmstudio/bin"
+if [ -d "/Users/mkocabas/.lmstudio/bin/" ]; then
+  export PATH="$PATH:/Users/mkocabas/.lmstudio/bin"
+fi
 # End of LM Studio CLI section
 
